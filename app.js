@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const countryController = require('./controllers/countryController');
+const countryRoutes = require('./routes/countryRoutes');
 
 const app = express();
 const port = 3000;
@@ -9,8 +9,13 @@ const port = 3000;
 // Enable CORS for all routes
 app.use(cors());
 
-// Use the countryController for /countries routes
-app.use('/countries', countryController);
+// ABANDONED STRUCTURE: Use the countryController for /countries routes
+//app.use('/countries', countryController);
+
+
+// Use countryRoutes for /countries routes INSTEAD:
+//get all countries:
+app.use('/countries', countryRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
