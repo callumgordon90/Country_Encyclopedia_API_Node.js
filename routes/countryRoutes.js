@@ -8,3 +8,4 @@ const countryController = require('../controllers/countryController');
 router.get('/', countryController.getAllCountries);
 
 module.exports = router;
+
