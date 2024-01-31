@@ -1,0 +1,33 @@
+Get All Countries:
+
+Method: GET
+Path: /countries
+Description: Retrieve a list of all countries.
+Get Single Country:
+
+Method: GET
+Path: /countries/:id
+Description: Retrieve information about a specific country by its ID.
+Add New Country:
+
+Method: POST
+Path: /countries
+Description: Add a new country to the database.
+Request Body: JSON with country details.
+Update Country:
+
+Method: PUT or PATCH
+Path: /countries/:id
+Description: Update information about a specific country by its ID.
+Request Body: JSON with updated country details.
+Delete Country:
+
+Method: DELETE
+Path: /countries/:id
+Description: Delete a specific country by its ID.
+Search Countries by Criteria:
+
+Method: GET
+Path: /countries/search
+Description: Retrieve countries based on specific criteria (e.g., continent, population range).
+Query Parameters: Criteria for searching.

@@ -15,7 +15,7 @@ app.use(cors());
 
 // Use countryRoutes for /countries routes INSTEAD:
 //get all countries:
-app.use('/countries', countryRoutes);
+app.use('/', countryRoutes);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

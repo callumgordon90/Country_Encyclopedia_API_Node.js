@@ -5,7 +5,10 @@ const cors = require('cors');
 const countryController = require('../controllers/countryController');
 
 // Defining routes for the 'countries' resource (get all countries)
-router.get('/', countryController.getAllCountries);
+router.get('/countries', countryController.getAllCountries);
+
+// Define route for getting a single country by ID
+router.get('/countries/:id', countryController.getCountryById);
 
 module.exports = router;
 
