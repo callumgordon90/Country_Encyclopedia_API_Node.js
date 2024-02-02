@@ -12,6 +12,9 @@ app.use(cors());
 // ABANDONED STRUCTURE: Use the countryController for /countries routes
 //app.use('/countries', countryController);
 
+//bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Use countryRoutes for /countries routes INSTEAD:
 //get all countries:

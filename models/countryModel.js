@@ -41,6 +41,20 @@ class CountryModel {
             throw new Error('Internal Server Error, getCountryById function failed');
         }
     }
+
+
+    // Method to add a new country
+    static async addCountry(newCountryData) {
+        try {
+            console.log('entered into add country function');
+            const result = await dbConnection.query(`INSERT INTO ${this.table} SET ?`, [newCountryData]);
+            return result;
+        } catch (error) {
+            console.error(error);
+            console.log([newCountryData]);
+            throw new Error('Internal Server Error, addCountry function failed');
+        }
+    }
   
 
   // Add more methods for other database operations as needed
