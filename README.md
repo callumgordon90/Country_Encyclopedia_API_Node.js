@@ -27,3 +27,46 @@ ORMs like Sequelize or TypeORM provide a higher-level abstraction, allowing one 
 
 /app.js (entry point)
 ```
+
+Also.. important instructions for using the 'search' filter: 
+
+## Search Countries by Criteria
+
+### Overview
+
+Retrieve countries based on specific criteria such as government type, national sport, and more. Customize your search by adding query parameters to the URL.
+
+### Endpoint
+
+`GET /countries/search`
+
+### Query Parameters
+
+- **governmentType**: Filter by government type (e.g., Democracy, Communism).
+- **nationalSport**: Filter by national sport (e.g., Football, Rugby).
+- **nationalFood**: Filter by national food.
+- **population**: Filter by population.
+- **nuclearPower**: Filter by nuclear power status (0 for false, 1 for true).
+- **continent**: Filter by continent.
+- **name**: Filter by country name.
+- **capital**: Filter by capital city.
+
+### Example Usage
+
+#### Request
+
+```http
+GET http://localhost:3000/countries/search?governmentType=Communism&nationalSport=Football
+
+Example response:
+
+[
+  {
+    "id": 1,
+    "name": "Example Country",
+    "capital": "Example Capital",
+    "national_sport": "Football",
+    // ... other country details
+  },
+  // ... additional matching countries
+]
