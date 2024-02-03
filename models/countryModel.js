@@ -55,6 +55,30 @@ class CountryModel {
             throw new Error('Internal Server Error, addCountry function failed');
         }
     }
+
+
+    // Method to update a country by ID
+    static async updateCountry(countryId, updatedCountryData) {
+        try {
+        const result = await dbConnection.query(`UPDATE ${this.table} SET ? WHERE id = ?`, [updatedCountryData, countryId]);
+        return result;
+        } catch (error) {
+        console.error(error);
+        throw new Error('Internal Server Error, updateCountry function failed');
+        }
+    }
+
+    // Method to delete a country by ID
+    static async deleteCountry(countryId) {
+        try {
+        const result = await dbConnection.query(`DELETE FROM ${this.table} WHERE id = ?`, [countryId]);
+        return result;
+        } catch (error) {
+        console.error(error);
+        throw new Error('Internal Server Error, deleteCountry function failed');
+        }
+    }
+
   
 
   // Add more methods for other database operations as needed

@@ -13,6 +13,11 @@ router.get('/countries/:id', countryController.getCountryById);
 //Route for adding a new country:
 router.post('/countries', countryController.addCountry);
 
+// PUT or PATCH update country
+router.put('/countries/:id', countryController.updateCountry);
+
+// DELETE delete country
+router.delete('/countries/:id', countryController.deleteCountry);
 
 module.exports = router;
 

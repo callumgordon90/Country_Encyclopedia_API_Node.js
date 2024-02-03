@@ -46,9 +46,37 @@ const countryModel = require('../models/countryModel');
     };
 
 
+    // PUT or PATCH update country
+    const updateCountry = async (req, res) => {
+        const countryId = req.params.id;
+        const updatedCountryData = req.body;
+        
+        try {
+        const result = await countryModel.updateCountry(countryId, updatedCountryData);
+        res.json({ message: 'Country updated successfully' });
+        } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error, updateCountry controller function failed' });
+        }
+    };
+
+    // DELETE delete country
+    const deleteCountry = async (req, res) => {
+        const countryId = req.params.id;
+        
+        try {
+        const result = await countryModel.deleteCountry(countryId);
+        res.json({ message: 'Country deleted successfully' });
+        } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error, deleteCountry controller function failed' });
+        }
+    };
 
 
 
-module.exports = { getAllCountries, getCountryById, addCountry };
+
+
+module.exports = { getAllCountries, getCountryById, addCountry, updateCountry, deleteCountry };
 
 
