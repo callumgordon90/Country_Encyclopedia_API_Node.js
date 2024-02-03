@@ -57,9 +57,10 @@ Retrieve countries based on specific criteria such as government type, national 
 
 ```http
 GET http://localhost:3000/countries/search?governmentType=Communism&nationalSport=Football
+```
 
 Example response:
-
+```
 [
   {
     "id": 1,
@@ -70,3 +71,4 @@ Example response:
   },
   // ... additional matching countries
 ]
+```

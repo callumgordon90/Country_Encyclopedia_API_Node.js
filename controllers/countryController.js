@@ -74,9 +74,19 @@ const countryModel = require('../models/countryModel');
     };
 
 
+    // Search countries based on criteria
+    const searchCountries = async (req, res) => {
+        const searchCriteria = req.query; // Query parameters from the request URL
+        try {
+            const countries = await countryModel.searchCountries(searchCriteria);
+            res.json(countries);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error, searchCountries controller function failed' });
+        }
+    };
 
 
-
-module.exports = { getAllCountries, getCountryById, addCountry, updateCountry, deleteCountry };
+module.exports = { getAllCountries, getCountryById, addCountry, updateCountry, deleteCountry, searchCountries };
 
 

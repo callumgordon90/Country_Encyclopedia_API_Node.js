@@ -79,7 +79,65 @@ class CountryModel {
         }
     }
 
-  
+    // Method to search countries based on criteria
+    static async searchCountries(criteria) {
+        try {
+            // Construct my SQL query dynamically based on the provided criteria
+            const queryConditions = [];
+            const queryParams = [];
+
+            if (criteria.name) {
+                queryConditions.push('name = ?');
+                queryParams.push(criteria.name);
+            }
+
+            if (criteria.capital) {
+                queryConditions.push('capital = ?');
+                queryParams.push(criteria.capital);
+            }
+
+            if (criteria.nationalSport) {
+                queryConditions.push('national_sport = ?');
+                queryParams.push(criteria.nationalSport);
+            }
+
+            if (criteria.nationalFood) {
+                queryConditions.push('national_food = ?');
+                queryParams.push(criteria.nationalFood);
+            }
+
+            if (criteria.maxPopulation) {
+                queryConditions.push('population <= ?');
+                queryParams.push(criteria.maxPopulation);
+            }
+
+            if (criteria.nuclearPower !== undefined) {
+                queryConditions.push('nuclear_power = ?');
+                queryParams.push(criteria.nuclearPower);
+            }
+
+            if (criteria.continent) {
+                queryConditions.push('continent = ?');
+                queryParams.push(criteria.continent);
+            }
+
+            if (criteria.governmentType) {
+                queryConditions.push('government_type = ?');
+                queryParams.push(criteria.governmentType);
+            }
+
+            // Add conditions for other criteria (countryName, capitalCity, food, sport) similarly
+
+            const queryString = `SELECT * FROM countries WHERE ${queryConditions.join(' AND ')}`;
+            const result = await dbConnection.query(queryString, queryParams);
+
+            return result[0];
+        } catch (error) {
+            console.error(error);
+            throw new Error('Internal Server Error, searchCountries function failed');
+        }
+    }
+
 
   // Add more methods for other database operations as needed
 }

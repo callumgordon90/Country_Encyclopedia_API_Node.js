@@ -19,5 +19,11 @@ router.put('/countries/:id', countryController.updateCountry);
 // DELETE delete country
 router.delete('/countries/:id', countryController.deleteCountry);
 
+// Search countries based on criteria
+router.get('/search', countryController.searchCountries);
+/* IMPORTANT NOTE ABOUT THE ENDPOINT ABOVE^ (Search countries based on criteria)
+
+*/
+
 module.exports = router;
 
