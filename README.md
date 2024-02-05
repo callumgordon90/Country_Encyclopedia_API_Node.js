@@ -25,6 +25,9 @@ ORMs like Sequelize or TypeORM provide a higher-level abstraction, allowing one 
   - userRoutes.js
   - authRoutes.js
 
+/utils
+  - generateRandomToken.js
+
 /app.js (entry point)
 ```
 
