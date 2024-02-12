@@ -79,19 +79,22 @@ Example response:
 ### Endpoints in my project: ###
  all the endpoints in your Node.js project:
 
-Country Endpoints:
+**Country Endpoints:**
 
-GET /countries: Retrieve all countries.
-GET /countries/:id: Retrieve a single country by ID.
-POST /countries: Create a new country.
-PUT /countries/:id: Update a country by ID.
-DELETE /countries/:id: Delete a country by ID.
-GET /countries/search: Search countries based on specific criteria (e.g., continent, population range).
-User Endpoints:
+- GET /countries: Retrieve all countries.
+- GET /countries/:id: Retrieve a single country by ID.
+- POST /countries: Create a new country.
+- PUT /countries/:id: Update a country by ID.
+- DELETE /countries/:id: Delete a country by ID.
+- GET /countries/search: Search countries based on specific criteria (e.g., continent, population range).
 
-POST /users/register: Register a new user.
-POST /users/login: Login user.
-Authentication Endpoints:
+**User Endpoints:**
 
-POST /auth/create-password-reset-token: Generate a password reset token.
-POST /auth/create-access-token: Generate an access token.
+- POST /users/register: Register a new user.
+- POST /users/login: Login user.
+  
+**Authentication Endpoints:**
+
+- POST /auth/create-password-reset-token: Generate a password reset token.
+- POST /auth/create-access-token: Generate an access token.
+  
