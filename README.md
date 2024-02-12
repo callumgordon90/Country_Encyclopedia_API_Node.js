@@ -1,39 +1,52 @@
-### The entry point for the project is app.js, which connects to the dbModel in the models folder and this connects to mysql. ###
+# Node.js Project
 
-Now when an http request is made, the flow is as follows:
+Welcome to the Node.js Project! This project is a RESTful API built using Node.js, which interacts with a MySQL database. It provides endpoints for managing countries, user authentication, and password reset functionalities.
 
-Frontend -> app.js -> route folder -> route file -> controller folder -> controller file -> model folder -> model file -> database, and then back up from controller to router to app.js
+## Project Structure
 
-
-### NOTE: In my current project, I am not using an Object-Relational Mapping (ORM) library. I am interacting with the MySQL database using the mysql2 library, which is a MySQL driver for Node.js, and I'm writing SQL queries manually. ###
-
-ORMs like Sequelize or TypeORM provide a higher-level abstraction, allowing one to interact with databases using JavaScript or TypeScript objects instead of raw SQL queries. They can simplify database interactions, handle relationships between tables, and provide features like migrations.
+The project follows a standard directory structure:
 
 ```
-/models
-  - countryModel.js
-  - userModel.js
-  - authModel.js (for authentication-related functionality)
+/node_project
+├── models/
+│ ├── countryModel.js
+│ ├── userModel.js
+│ └── authModel.js (for authentication-related functionality)
+├── controllers/
+│ ├── countryController.js
+│ ├── userController.js
+│ └── authController.js (for authentication-related endpoints)
+├── routes/
+│ ├── countryRoutes.js
+│ ├── userRoutes.js
+│ └── authRoutes.js
+├── utils/
+│ └── generateRandomToken.js
+└── app.js (entry point)
 
-/controllers
-  - countryController.js
-  - userController.js
-  - authController.js (for authentication-related endpoints)
-
-/routes
-  - countryRoutes.js
-  - userRoutes.js
-  - authRoutes.js
-
-/utils
-  - generateRandomToken.js
-
-/app.js (entry point)
 ```
 
-Also.. important instructions for using the 'search' filter: 
+## Endpoints
 
-## Search Countries by Criteria
+### Countries
+
+- **GET /countries**: Retrieve all countries.
+- **GET /countries/:id**: Retrieve a single country by ID.
+- **POST /countries**: Create a new country.
+- **PUT /countries/:id**: Update a country by ID.
+- **DELETE /countries/:id**: Delete a country by ID.
+- **GET /countries/search**: Search countries based on specific criteria (e.g., continent, population range).
+
+### Users
+
+- **POST /users/register**: Register a new user.
+- **POST /users/login**: Login user.
+
+### Authentication
+
+- **POST /auth/create-password-reset-token**: Generate a password reset token.
+
+## Using the 'Search' Filter
 
 ### Overview
 
@@ -60,10 +73,9 @@ Retrieve countries based on specific criteria such as government type, national 
 
 ```http
 GET http://localhost:3000/countries/search?governmentType=Communism&nationalSport=Football
-```
 
-Example response:
-```
+example response:
+
 [
   {
     "id": 1,
@@ -74,27 +86,4 @@ Example response:
   },
   // ... additional matching countries
 ]
-```
 
-### Endpoints in my project: ###
- all the endpoints in your Node.js project:
-
-**Country Endpoints:**
-
-- GET /countries: Retrieve all countries.
-- GET /countries/:id: Retrieve a single country by ID.
-- POST /countries: Create a new country.
-- PUT /countries/:id: Update a country by ID.
-- DELETE /countries/:id: Delete a country by ID.
-- GET /countries/search: Search countries based on specific criteria (e.g., continent, population range).
-
-**User Endpoints:**
-
-- POST /users/register: Register a new user.
-- POST /users/login: Login user.
-  
-**Authentication Endpoints:**
-
-- POST /auth/create-password-reset-token: Generate a password reset token.
-- POST /auth/create-access-token: Generate an access token.
-  
